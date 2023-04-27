@@ -8,7 +8,8 @@ NPM
 
 Installation
 Heroku:
-
+follow the link below,
+https://country-information-app.herokuapp.com/
 Localhost:
 after file unzipped enter following two commands,
 cd ./coding-challenge-submission/backend
@@ -22,8 +23,8 @@ If an error occurs during the search process, such as no country found, then
 nothing will be displayed on the screen.
 
 Built With
-React - A JavaScript library for building user interfaces.
-Node.js - A JavaScript runtime built on Chrome's V8 JavaScript engine.
-Express - A minimal and flexible Node.js web application framework.
+React,
+Node.js,
+Express.
 
 
