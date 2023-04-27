@@ -1,6 +1,14 @@
 const axios = require('axios');
 
-const countryDetails = (req,res,next)=>{
+/**
+ * Controller for express app which serves the request 
+ * with name parameter by calling the 
+ * restcountries name endpoint, then sending the data 
+ * recieved back.
+ * @param {*} req 
+ * @param {*} res 
+ */
+const countryDetails = (req,res)=>{
     const name = req.params.name;
     res.set('Content-Type', 'application/json');
     axios.get(`https://restcountries.com/v3.1/name/${name}`)

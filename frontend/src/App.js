@@ -1,12 +1,20 @@
 import { useEffect, useState } from 'react';
 import { DisplayFastFacts, DisplayFullFacts } from './Components/InfoDisplay';
 import { SearchBar } from './Components/SearchBar';
-//import './App.css';
+import './App.css';
+
+
 
 function App() {
   const [search,setSearch] = useState("");
   const [countryFastFacts, setCountryFastFacts] = useState(null);
   const [countryFullFacts,setCountryFullFacts] = useState(null);
+
+  /**
+   *  set up effect hook dependent on search state.
+   *  fetch data from backend server on the rest endpoint /name
+   *  with parameter set to the value of the search state.
+   */
   useEffect(()=>{
     const handleCountryChange = async() =>{
       if(search!==""){
@@ -37,6 +45,10 @@ function App() {
     return ()=> clearTimeout(delay);
   },[search]);
 
+  /**
+   *  Render the searchbar, the fast facts,
+   *  and the full facts of the country.
+   */
   return (
     <div className="App">
         <SearchBar search={search} setSearch = {setSearch}/>

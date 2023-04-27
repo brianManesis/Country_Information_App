@@ -1,5 +1,13 @@
 import {React} from "react";
 
+
+
+/**
+ * React component with countryFastFacts in prop, which is json
+ * to be manipulated for rendering
+ * @param {countryFastFacts} countryFastFact object 
+ * @returns render for the quick information on country
+ */
 const DisplayFastFacts = ({countryFastFacts})=> {
     if(countryFastFacts!==null){
     return (
@@ -21,9 +29,14 @@ const DisplayFastFacts = ({countryFastFacts})=> {
     }
 } 
 
-// const DisplayFullFacts = ({countryFullFacts})=>{
-//   return <Json data={countryFullFacts} />;
-// }
+
+
+/**
+ * React component with json object containing all
+ * information on country.
+ * @param {countryFullFacts} countryFullFacts object 
+ * @returns render for total informatiion on country
+ */
 const DisplayFullFacts = ({countryFullFacts})=>{
   if(countryFullFacts === null){
     return null;
@@ -34,6 +47,15 @@ const DisplayFullFacts = ({countryFullFacts})=>{
     </div>
   );
 }
+
+
+
+/**
+ * React component to recursively render nested json data
+ * in format of table.
+ * @param {data} json object to be rendered 
+ * @returns table containing nested json data
+ */
 const JsonFormatter = ({data})=>{
   if(typeof data === "object" && data !== null){
     return(

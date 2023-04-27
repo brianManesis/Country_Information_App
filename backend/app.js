@@ -3,6 +3,11 @@ const router = require('./routes/Router');
 const cors = require('cors');
 const app = express();
 
+/**
+ * Start express app.
+ * Use cors, router and,
+ * static build of react app.
+ */
 app.use(cors());
 app.use(express.static('../frontend/build'));
 app.use(router);
