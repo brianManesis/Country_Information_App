@@ -2,7 +2,7 @@ const express = require('express');
 const router = require('./routes/Router');
 const cors = require('cors');
 const app = express();
-
+const port = 5000;
 /**
  * Start express app.
  * Use cors, router and,
@@ -11,4 +11,4 @@ const app = express();
 app.use(cors());
 app.use(express.static('../frontend/build'));
 app.use(router);
-app.listen(5000);
+app.listen(process.env.PORT || port);
