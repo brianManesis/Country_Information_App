@@ -20,37 +20,49 @@ const DisplayFastFacts = ({countryFastFacts})=> {
         return (<div></div>);
     }
 } 
+
+// const DisplayFullFacts = ({countryFullFacts})=>{
+//   return <Json data={countryFullFacts} />;
+// }
 const DisplayFullFacts = ({countryFullFacts})=>{
-  if(countryFullFacts !== null){
-    return (
-        <div className="fullFactsContainer">
-          <h2>Country Info</h2>
-          <table className="fullFactsTable">
-            <tbody>
-            {renderNestedObjects(countryFullFacts)}
-            </tbody>
-          </table>
-        </div>
-    );
+  if(countryFullFacts === null){
+    return null;
   }
-  else{
-    return <div></div>;
+  return (
+    <div className={"fullFactsContainer"}>
+      <JsonFormatter data={countryFullFacts}/>
+    </div>
+  );
+}
+const JsonFormatter = ({data})=>{
+  if(typeof data === "object" && data !== null){
+    return(
+      <div className="tableContainer">
+        <table className="fullFactsTable">
+          <tbody>
+            { Object.keys(data).map((k) => (
+                <tr key={k}>
+                    <th className="key">
+                        {k}
+                    </th>
+                    <td className="objectValue">
+                        <JsonFormatter
+                            data={data[k]}
+                        />
+                    </td>
+                </tr>
+            )) }
+          </tbody>
+        </table>
+      </div>
+    );
+  }else{
+    data = String(data);
+    if(data.substring(0,4) === 'http'){
+      return <a href={String(data)}>{String(data)}</a>;
+    }
+    return <div className="value">{data}</div>;
   }
 }
-const renderNestedObjects = (data) => {
-    if (typeof data === 'object' && data !== null) {
-      return Object.keys(data).map((key) => (
-        <tr key={key}>
-          <td><strong>{key}:</strong></td>
-          <td>{renderNestedObjects(data[key])}</td>
-        </tr>
-      ));
-    }
-    else if(String(data).substring(0,4) === 'http'){
-      return (<a href={String(data)}>{String(data)}</a>);
-    }
-     else {
-      return (<p>{String(data)}</p>);
-    }
-  }
+
 export  {DisplayFastFacts,DisplayFullFacts};

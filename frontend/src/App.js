@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import './App.css';
 import { DisplayFastFacts, DisplayFullFacts } from './Components/InfoDisplay';
 import { SearchBar } from './Components/SearchBar';
+//import './App.css';
 
 function App() {
   const [search,setSearch] = useState("");
