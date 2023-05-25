@@ -7,9 +7,11 @@ Node.js
 NPM
 
 Installation
+
 Heroku:
 follow the link below,
-https://country-information-app.herokuapp.com/
+https://country-information-app.herokuapp.com
+
 Localhost:
 after file unzipped enter following two commands,
 cd ./coding-challenge-submission/backend
