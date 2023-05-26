@@ -1,4 +1,4 @@
-# coding-challenge-submission React-Express Country Information App
+# React-Express Country Information App
 This is a web application built with React, NodeJS and Express which allows users to input a country as a string and retrieves information about that country from the REST Countries API.
 
 Prerequisites
